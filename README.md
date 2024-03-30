@@ -1,1 +1,2 @@
 # tradingviewAutoFill
+tradingview根据光标所在元素自动写
