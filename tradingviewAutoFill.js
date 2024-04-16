@@ -60,14 +60,14 @@ window.onkeydown = function (event) {
         reactFiber.memoizedProps.children[2].props.definition.definitions._value[1].properties.value.setValue(parseFloat(low.innerHTML));
         // 让1个点
         ticks = reactFiber.memoizedProps.children[2].props.definition.definitions._value[0].properties.value.value();
-        reactFiber.memoizedProps.children[2].props.definition.definitions._value[0].properties.value.setValue(ticks+1);
+        reactFiber.memoizedProps.children[2].props.definition.definitions._value[0].properties.value.setValue(ticks+10);
         break;
       case 'Risk/RewardshortStopLevelPrice':
         // 设置止损价
         reactFiber.memoizedProps.children[2].props.definition.definitions._value[1].properties.value.setValue(parseFloat(high.innerHTML));
         // 让1个点
         ticks = reactFiber.memoizedProps.children[2].props.definition.definitions._value[0].properties.value.value();
-        reactFiber.memoizedProps.children[2].props.definition.definitions._value[0].properties.value.setValue(ticks+1);
+        reactFiber.memoizedProps.children[2].props.definition.definitions._value[0].properties.value.setValue(ticks+10);
         break;
 
       case 'Risk/RewardlongProfitLevelPrice':
@@ -84,7 +84,8 @@ window.onkeydown = function (event) {
     }
     if(activeElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.getAttribute('data-dialog-name')=="获取止盈"){
       // 设置3.6倍ATR
-      reactFiber.memoizedProps.children[0].props.property.in_0._value=parseFloat(Atr.innerHTML);
+      atrNum=parseFloat(Atr.innerHTML.replace(/\s/g,""))
+      reactFiber.memoizedProps.children[0].props.property.in_0._listeners._listeners[0].object.in_0._listeners._listeners[1].object._setValue("in_0",atrNum,"ATRx3.6")
     }
   }
 }
