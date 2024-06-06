@@ -36,14 +36,13 @@ window.onkeydown = function (event) {
     // 获取最高价div
     let high = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[1]/div[2]/div/div[2]/div[1]/div[1]/div[2]/div/div[3]/div[2]",document.body).iterateNext();
     // 获取做多的ATR计算后的div
-    let lowPlusAtr = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[3]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div",document.body).iterateNext();
+    let lowPlusAtr = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[3]/div[2]/div/div[2]/div/div/div[2]/div[2]/div/div[1]/div",document.body).iterateNext();
     // 获取空多的ATR计算后的div
-    let highMinusAtr = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[3]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div[2]/div",document.body).iterateNext();
+    let highMinusAtr = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[3]/div[2]/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div",document.body).iterateNext();
     // 获取3.6倍ATR
-    let Atr = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[5]/div[2]/div/div[2]/div/div[2]/div[2]/div[2]/div/div[2]/div",document.body).iterateNext();
+    let Atr = document.evaluate("/html/body/div[2]/div[5]/div[1]/div[1]/div/div[2]/div[5]/div[2]/div/div[2]/div/div/div[2]/div[2]/div/div[2]/div",document.body).iterateNext();
     // 获取当前光标所在元素
     let activeElement = document.activeElement;
-
 
     switch(activeElement.getAttribute('data-property-id')) {
       case 'Risk/RewardlongEntryPrice':
@@ -72,6 +71,8 @@ window.onkeydown = function (event) {
 
       case 'Risk/RewardlongProfitLevelPrice':
         // 设置止盈价
+        console.log(lowPlusAtr)
+        console.log(lowPlusAtr.innerHTML)
         reactFiber.memoizedProps.children[1].props.definition.definitions._value[1].properties.value.setValue(parseFloat(lowPlusAtr.innerHTML));
         break;
       case 'Risk/RewardshortProfitLevelPrice':
